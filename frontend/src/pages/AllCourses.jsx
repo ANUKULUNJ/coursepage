@@ -7,7 +7,7 @@ import { Users, ArrowRight, Mail } from "lucide-react";
 import { sendEmail } from "../services/emailService";
 
 const AllCoursesPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -225,6 +225,36 @@ const AllCoursesPage = () => {
         <div className="space-y-6">
           {!showConfirm ? (
             <>
+              <div className="flex flex-col space-y-3">
+                <label htmlFor="email" className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                  Email Address
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white/50 dark:bg-black/10 backdrop-blur-sm border-white/20 dark:border-white/10 
+                    focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30
+                    text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                />
+              </div>
+              <div className="flex flex-col space-y-3">
+                <label htmlFor="email" className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                  Email Address
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white/50 dark:bg-black/10 backdrop-blur-sm border-white/20 dark:border-white/10 
+                    focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30
+                    text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                />
+              </div>
               <div className="flex flex-col space-y-3">
                 <label htmlFor="email" className="text-sm font-medium text-gray-900 dark:text-gray-100">
                   Email Address
