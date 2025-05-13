@@ -99,7 +99,7 @@ const AllCoursesPage = () => {
       localStorage.setItem('registrationId', registrationResult.registration.registrationId);
       
       // Open Razorpay in a new tab
-      window.location.href('https://rzp.io/rzp/bDNGTXB', '_blank');
+      window.location.href = 'https://rzp.io/rzp/bDNGTXB';
       
       // Don't close the modal
       if (setIsSubmitted) {
