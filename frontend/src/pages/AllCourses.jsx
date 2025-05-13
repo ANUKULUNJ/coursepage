@@ -99,7 +99,9 @@ const AllCoursesPage = () => {
       localStorage.setItem('registrationId', registrationResult.registration.registrationId);
       
       // Open Razorpay in a new tab
-      window.open('https://rzp.io/rzp/bDNGTXB', '_blank');
+    setTimeout(() => {
+      window.location.href = 'https://rzp.io/rzp/bDNGTXB';
+    }, 100);
       
       // Don't close the modal
       if (setIsSubmitted) {
