@@ -9,8 +9,8 @@ const PaymentSuccessPage = () => {
   const hasSent = useRef(false);
   
   const courseDetails = {
-    title: "Full Stack Web Development",
-    date: "2025-06-01",
+    title: "Resume building workshop",
+    date: "18-05-2025",
     price: "49"
   };
 
