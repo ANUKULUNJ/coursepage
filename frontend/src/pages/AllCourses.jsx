@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
@@ -31,6 +31,15 @@ const AllCoursesPage = () => {
       },
     ],
   };
+
+  // Add useEffect to show modal by default
+  useEffect(() => {
+    // Set the first course as selected and open modal
+    if (contentData.cohorts && contentData.cohorts.length > 0) {
+      setSelectedCourse(contentData.cohorts[0]);
+      setIsModalOpen(true);
+    }
+  }, []); // Empty dependency array means this runs once on component mount
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -89,10 +98,10 @@ const AllCoursesPage = () => {
       // Store registration ID in session storage for later use
       sessionStorage.setItem('registrationId', registrationResult.registration.registrationId);
       
-      // Redirect to Razorpay
-      window.location.href = 'https://rzp.io/rzp/bDNGTXB';
+      // Open Razorpay in a new tab
+      window.open('https://rzp.io/rzp/bDNGTXB', '_blank');
       
-      setIsModalOpen(false);
+      // Don't close the modal
       if (setIsSubmitted) {
         setIsSubmitted(true);
       }
