@@ -95,8 +95,8 @@ const AllCoursesPage = () => {
         phone
       });
 
-      // Store registration ID in session storage for later use
-      sessionStorage.setItem('registrationId', registrationResult.registration.registrationId);
+      // Store registration ID in local storage for later use
+      localStorage.setItem('registrationId', registrationResult.registration.registrationId);
       
       // Open Razorpay in a new tab
       window.open('https://rzp.io/rzp/bDNGTXB', '_blank');
@@ -157,19 +157,17 @@ const AllCoursesPage = () => {
             </div>
           </div>
           
-          <div className="flex justify-between items-center">
-            <div className="flex items-baseline">
-              <span className="text-xl font-bold text-[#003265]">₹{course.price}</span>
-              <span className="ml-2 text-gray-400 line-through text-sm">₹{course.originalPrice}</span>
-            </div>
-            <Button 
-              className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white rounded-full px-4 py-1 flex items-center gap-1 transition-all duration-200 shadow-md hover:shadow-lg text-sm"
-              onClick={() => handleEnrollClick(course)}
-            >
-              <span>Enroll Now</span>
-              <ArrowRight className="w-3 h-3" />
-            </Button>
+          <div className="flex items-baseline">
+            <span className="text-xl font-bold text-[#003265]">₹{course.price}</span>
+            <span className="ml-2 text-gray-400 line-through text-sm">₹{course.originalPrice}</span>
           </div>
+          <Button 
+            className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white rounded-full px-4 py-1 flex items-center gap-1 transition-all duration-200 shadow-md hover:shadow-lg text-sm"
+            onClick={() => handleEnrollClick(course)}
+          >
+            <span>Enroll Now</span>
+            <ArrowRight className="w-3 h-3" />
+          </Button>
         </div>
       </motion.div>
     );

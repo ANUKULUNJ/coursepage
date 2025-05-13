@@ -21,12 +21,14 @@ const TempPaymentPage = () => {
         phone: userDetails?.phone
       });
 
-      // Simulate successful payment and redirect with registration ID
+      // Store registration ID in localStorage
+      localStorage.setItem('registrationId', registrationResult.registration.registrationId);
+
+      // Simulate successful payment and redirect
       navigate('/payment-status', { 
         state: { 
           courseDetails,
-          userDetails,
-          registrationId: registrationResult.registration.registrationId
+          userDetails
         }
       });
     } catch (error) {

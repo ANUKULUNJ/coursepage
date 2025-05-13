@@ -11,7 +11,7 @@ const PaymentSuccessPage = () => {
   const courseDetails = {
     title: "Full Stack Web Development",
     date: "2025-06-01",
-    price: "199"
+    price: "49"
   };
 
   useEffect(() => {
@@ -20,17 +20,18 @@ const PaymentSuccessPage = () => {
       hasSent.current = true;
 
       try {
-      
-        const registrationId = sessionStorage.getItem('registrationId');
+        const registrationId = localStorage.getItem('registrationId');
+        console.log(localStorage.getItem('registrationId'));
         if (!registrationId) {
           console.error("Missing registration ID");
           return;
         }
 
         await confirmPaymentSuccess(registrationId);
-        // Clear the registration ID from session storage after successful confirmation
-        sessionStorage.removeItem('registrationId');
+        // Clear the registration ID from local storage after successful confirmation
+        localStorage.removeItem('registrationId');
       } catch (error) {
+        console.log("not found")
         console.error("Payment confirmation failed:", error);
         alert("Failed to confirm payment. Please contact support.");
       }
@@ -71,7 +72,7 @@ const PaymentSuccessPage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Amount Paid:</span>
-                  <span className="font-medium text-green-600">${courseDetails.price}</span>
+                  <span className="font-medium text-green-600">₹{courseDetails.price}</span>
                 </div>
               </div>
             ) : (
