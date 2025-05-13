@@ -22,11 +22,6 @@ const PaymentSuccessPage = () => {
       try {
         const registrationId = localStorage.getItem('registrationId');
         console.log(localStorage.getItem('registrationId'));
-        if (!registrationId) {
-          console.error("Missing registration ID");
-          return;
-        }
-
         await confirmPaymentSuccess(registrationId);
         // Clear the registration ID from local storage after successful confirmation
         // localStorage.removeItem('registrationId');
